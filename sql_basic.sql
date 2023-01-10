@@ -113,7 +113,7 @@ SELECT region,MAX(life_expectancy), MAX(population) FROM countries GROUP BY regi
 -- 問23
 -- アジア大陸の中で最小の表面積を表示してください
 
-SELECT MIN(surface_area) AS 'アジアの最小表面積 'FROM countries;
+SELECT MIN(surface_area) AS 'アジアの最小表面積 'FROM countries WHERE continent = 'Asia';
 
 
 -- 問24
@@ -168,7 +168,6 @@ SELECT '1980' AS '誕生年' , COUNT(name) FROM celebrities WHERE birth BETWEEN 
 -- 有名人の出身国の平均年齢を高い方から順に表示してください。ただし、FROM句はcountriesテーブルとしてください。;
 
 SELECT countries.name AS '国名', AVG(celebrities.age) AS '平均年齢' FROM countries JOIN celebrities ON countries.code = celebrities.country_code GROUP BY countries.name ORDER BY AVG(celebrities.age) DESC
-
 
 
 
